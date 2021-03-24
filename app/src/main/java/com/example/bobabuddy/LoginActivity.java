@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 // Nhi was here!
+//and Alysia!
 public class LoginActivity extends AppCompatActivity {
 
     Button loginbtn, signupbtn;
