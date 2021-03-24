@@ -16,11 +16,11 @@ import com.example.bobabuddy.LoginActivity;
 import com.example.bobabuddy.R;
 
 
-public class ProfileFragment extends Fragment {
+public class MyProfileFragment extends Fragment {
 
     Button logoutbtn;
 
-    public ProfileFragment() {
+    public MyProfileFragment() {
         // Required empty public constructor
     }
 
@@ -29,7 +29,7 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        return inflater.inflate(R.layout.fragment_myprofile, container, false);
     }
 
     @Override
@@ -41,10 +41,18 @@ public class ProfileFragment extends Fragment {
         logoutbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //end fragment and set login activity I think
+                goLoginActivity();
+
+
 
             }
         });
+
+    }
+
+    public void goLoginActivity(){
+        Intent i = new Intent(getActivity(), LoginActivity.class);
+        startActivity(i);
 
     }
 
