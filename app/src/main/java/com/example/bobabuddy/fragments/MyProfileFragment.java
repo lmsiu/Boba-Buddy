@@ -43,7 +43,7 @@ public class MyProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //Logs out user TODO comment out when back4app is setup
-                //ParseUser.logOut();
+                ParseUser.logOut();
                 goLoginActivity();
 
 

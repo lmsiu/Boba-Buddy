@@ -20,8 +20,8 @@ public class LoginActivity extends AppCompatActivity {
     //Debugging tag for log statements. Go to debug on the logcat and type in "LoginActivity" to see logs we made
     public static final String TAG = "LoginActivity";
 
-    Button loginbtn, signupbtn;
-    EditText etusername, etpassword;
+    private Button loginbtn, signupbtn;
+    private EditText etusername, etpassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,13 +44,13 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //set main activity on the click of login button. Need to add verification and sign up functions
-                goMainActivity();
+                //goMainActivity();
                 //what will actually happen on the click:
                 //get the username and password as a string
                 //TODO when back4app has been linked, uncomment these for login
-//                String username = etusername.getText().toString();
-//                String password = etpassword.getText().toString();
-//                loginUser(username, password);
+                String username = etusername.getText().toString();
+                String password = etpassword.getText().toString();
+                loginUser(username, password);
 
             }
         });
@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginUser(String username, String password) {
-        //if credentials are correct, go to main activity
+        //if credentials are correct, go to main activity, checked using a parse function
         ParseUser.logInInBackground(username, password, new LogInCallback() {
             //login happens in background
             @Override

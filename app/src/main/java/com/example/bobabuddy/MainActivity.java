@@ -10,6 +10,7 @@ import android.view.MenuItem;
 
 import com.example.bobabuddy.fragments.HomeFragment;
 import com.example.bobabuddy.fragments.MyProfileFragment;
+import com.example.bobabuddy.fragments.YelpFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.myprofileitem:
                         fragment = new MyProfileFragment();
+                        break;
+                    case R.id.miadd:
+                        fragment = new YelpFragment();
                         break;
                     case R.id.homeitem:
                     default:

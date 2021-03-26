@@ -35,9 +35,21 @@
         android:id="@+id/btnNewSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etNewPassword"
+        android:layout_below="@+id/ivNewProfilePic"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="159dp"
+        android:layout_marginEnd="158dp"
         android:text="Sign Up" />
+
+    <ImageView
+        android:id="@+id/ivNewProfilePic"
+        android:layout_width="196dp"
+        android:layout_height="200dp"
+        android:layout_below="@+id/etNewPassword"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="104dp"
+        android:layout_marginBottom="5dp"
+        tools:srcCompat="@tools:sample/avatars" />
 </RelativeLayout>
