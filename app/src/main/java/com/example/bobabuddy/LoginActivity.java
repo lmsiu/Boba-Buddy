@@ -28,6 +28,12 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        //if user is already logged in, keep them logged in even after exiting the app
+        if(ParseUser.getCurrentUser() != null){
+            //if there is a user right now, then go straight to the main activity
+            goMainActivity();
+        }
+
         //get references to the buttons for each variable
         loginbtn = findViewById(R.id.btnLogin);
         signupbtn = findViewById(R.id.btnSignUp);

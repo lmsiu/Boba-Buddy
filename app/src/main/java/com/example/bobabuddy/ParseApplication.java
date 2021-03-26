@@ -5,6 +5,7 @@ import android.app.Application;
 import com.parse.Parse;
 
 public class ParseApplication extends Application {
+//links back4app database with the app
 
     @Override
     public void onCreate() {

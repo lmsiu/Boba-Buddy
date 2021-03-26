@@ -14,6 +14,7 @@ import android.widget.Button;
 
 import com.example.bobabuddy.LoginActivity;
 import com.example.bobabuddy.R;
+import com.parse.ParseUser;
 
 
 public class MyProfileFragment extends Fragment {
@@ -41,7 +42,10 @@ public class MyProfileFragment extends Fragment {
         logoutbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Logs out user TODO comment out when back4app is setup
+                //ParseUser.logOut();
                 goLoginActivity();
+
 
 
 
@@ -53,6 +57,7 @@ public class MyProfileFragment extends Fragment {
     public void goLoginActivity(){
         Intent i = new Intent(getActivity(), LoginActivity.class);
         startActivity(i);
+
 
     }
 
