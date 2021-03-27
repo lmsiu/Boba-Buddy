@@ -40,14 +40,8 @@
         android:layout_marginTop="7dp"
         android:layout_marginEnd="157dp"
         android:text="Sign Up!" />
-
-    <<<<<<< HEAD
         android:layout_marginEnd="160dp"
         android:text="Sign Up" />
-=======
-        android:layout_marginEnd="158dp"
-        android:text="@string/sign_up" />
->>>>>>> af5512d841ebc6141a5e28d3adb850afc1b36a8e
 
     <ImageView
         android:id="@+id/ivNewProfilePic"

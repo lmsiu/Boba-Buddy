@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -14,10 +15,12 @@ import android.view.ViewGroup;
 
 import com.example.bobabuddy.R;
 import com.example.bobabuddy.User;
+import com.example.bobabuddy.UserAdapter;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
@@ -26,6 +29,8 @@ public class HomeFragment extends Fragment {
 
     //Holds list that allows for people to scroll and see things
     private RecyclerView rvHome;
+    private UserAdapter adapter;
+    private List<User> allUsers;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -43,8 +48,13 @@ public class HomeFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rvHome = view.findViewById(R.id.rvHome);
+        allUsers = new ArrayList<>();
+        adapter = new UserAdapter(getContext(), allUsers);
 
-        //Populate the recylcer view
+        rvHome.setAdapter(adapter);
+        rvHome.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        //Populate the recycler view
         //
         queryUsers();
     }
@@ -59,9 +69,13 @@ public class HomeFragment extends Fragment {
                     Log.e(TAG, "Issue getting posts", e);
                     return;
                 }
+                //seems to be problem here, unsure why user isn't valid
                 for (User user : users){
-                    Log.i(TAG, "User: " + user.getUsername() + user.getBio() + user.getPlaces().toString());
+                    Log.i(TAG, "Quried");
                 }
+
+                allUsers.addAll(users);
+                adapter.notifyDataSetChanged();
             }
         });
 

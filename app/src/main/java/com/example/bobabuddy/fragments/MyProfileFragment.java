@@ -1,5 +1,6 @@
 package com.example.bobabuddy.fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -11,15 +12,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.bobabuddy.LoginActivity;
 import com.example.bobabuddy.R;
+import com.example.bobabuddy.User;
+import com.parse.Parse;
+import com.parse.ParseFile;
 import com.parse.ParseUser;
 
 
 public class MyProfileFragment extends Fragment {
 
     Button logoutbtn;
+    ImageView ivProfilePic;
+    TextView tvHello;
+    Context context;
 
     public MyProfileFragment() {
         // Required empty public constructor
@@ -38,6 +48,18 @@ public class MyProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         logoutbtn = view.findViewById(R.id.btnLogout);
+        tvHello = view.findViewById(R.id.tvHelloUser);
+        ivProfilePic = view.findViewById(R.id.ivMyProfilePic);
+        this.context = context;
+
+        tvHello.setText("Hello, " + ParseUser.getCurrentUser().getUsername());
+
+        //Need to figure out how to access user data from users and not just use get current user
+//        ParseFile image = user.getImage();
+//
+//        if(image != null) {
+//            Glide.with(context).load(user.getImage().getUrl()).into(ivProfilePic);
+//        }
 
         logoutbtn.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -24,9 +24,10 @@
         android:layout_height="308dp"
         android:layout_below="@+id/tvProfileUsername"
         android:layout_alignParentEnd="true"
-        android:layout_margin="5dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="25dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
@@ -41,8 +42,8 @@
         app:iconPadding="0dp"
         app:iconTint="#B37777" />
 
-    <EditText
-        android:id="@+id/etBio"
+    <TextView
+        android:id="@+id/tvBio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
@@ -55,11 +56,11 @@
         android:inputType="textMultiLine"
         tools:text="This is my bio. I work at JJ Boba and I want to cry" />
 
-    <EditText
-        android:id="@+id/etPlaces"
+    <TextView
+        android:id="@+id/tvPlaces"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etBio"
+        android:layout_below="@+id/tvBio"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
