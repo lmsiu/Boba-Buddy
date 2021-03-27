@@ -13,9 +13,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.bobabuddy.Profile;
+import com.example.bobabuddy.ProfileAdapter;
 import com.example.bobabuddy.R;
-import com.example.bobabuddy.User;
-import com.example.bobabuddy.UserAdapter;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -29,8 +29,9 @@ public class HomeFragment extends Fragment {
 
     //Holds list that allows for people to scroll and see things
     private RecyclerView rvHome;
-    private UserAdapter adapter;
-    private List<User> allUsers;
+    private ProfileAdapter adapter;
+    private List<Profile> allProfiles;
+
 
     public HomeFragment() {
         // Required empty public constructor
@@ -42,42 +43,48 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
+
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        Log.i(TAG, "In Home fragment");
         rvHome = view.findViewById(R.id.rvHome);
-        allUsers = new ArrayList<>();
-        adapter = new UserAdapter(getContext(), allUsers);
+        allProfiles = new ArrayList<>();
+        adapter = new ProfileAdapter(getContext(), allProfiles);
 
         rvHome.setAdapter(adapter);
         rvHome.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        Log.i(TAG, "About to query");
         //Populate the recycler view
-        //
-        queryUsers();
+        queryProfiles();
+        Log.i(TAG, "Queried?");
     }
 
-    private void queryUsers(){
-        ParseQuery<User> query = ParseQuery.getQuery(User.class);
-        query.include(User.KEY_USERID);
-        query.findInBackground(new FindCallback<User>() {
-            @Override
-            public void done(List<User> users, ParseException e) {
-                if (e != null){
-                    Log.e(TAG, "Issue getting posts", e);
-                    return;
-                }
-                //seems to be problem here, unsure why user isn't valid
-                for (User user : users){
-                    Log.i(TAG, "Quried");
-                }
 
-                allUsers.addAll(users);
-                adapter.notifyDataSetChanged();
+private void queryProfiles() {
+    ParseQuery<Profile> query = ParseQuery.getQuery(Profile.class);
+    query.include(Profile.KEY_USER);
+    query.findInBackground(new FindCallback<Profile>() {
+        @Override
+        public void done(List<Profile> profiles, ParseException e) {
+            if (e != null) {
+                Log.e(TAG, "Error retrieving data");
+                return;
             }
-        });
 
-    }
+            for (Profile profile : profiles) {
+                Log.i(TAG, "Bio " + profile.getBio() + "User: " + profile.getUser().getUsername() + " Places: " + profile.getPlaces().toString());
+            }
+
+            allProfiles.addAll(profiles);
+            adapter.notifyDataSetChanged();
+
+        }
+
+    });
+}
 }

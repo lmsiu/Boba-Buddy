@@ -15,12 +15,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.example.bobabuddy.LoginActivity;
 import com.example.bobabuddy.R;
-import com.example.bobabuddy.User;
-import com.parse.Parse;
-import com.parse.ParseFile;
 import com.parse.ParseUser;
 
 
@@ -61,6 +57,8 @@ public class MyProfileFragment extends Fragment {
 //            Glide.with(context).load(user.getImage().getUrl()).into(ivProfilePic);
 //        }
 
+
+
         logoutbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,6 +74,7 @@ public class MyProfileFragment extends Fragment {
     public void goLoginActivity(){
         Intent i = new Intent(getActivity(), LoginActivity.class);
         startActivity(i);
+
 
 
     }

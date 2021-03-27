@@ -9,29 +9,20 @@ import org.json.JSONArray;
 
 import java.lang.reflect.Array;
 
-@ParseClassName("User")
-public class User extends ParseObject {
+@ParseClassName("Profile")
+public class Profile extends ParseObject {
 
-    public static final String KEY_USERNAME = "username";
-    public static final String KEY_USERID = "objectId";
+    public static final String KEY_USER = "User";
     public static final String KEY_PROFILEPIC = "ProfilePic";
     public static final String KEY_PLACES = "Places";
     public static final String KEY_BIO = "Bio";
 
     public ParseUser getUser(){
-        return getParseUser(KEY_USERID);
+        return getParseUser(KEY_USER);
     }
 
     public void setUser(ParseUser user){
-        put(KEY_USERID, user);
-    }
-
-    public String getUsername(){
-        return getString(KEY_USERNAME);
-    }
-
-    public void setUsername(String username){
-        put(KEY_USERNAME, username);
+        put(KEY_USER, user);
     }
 
     public ParseFile getImage(){
@@ -57,5 +48,4 @@ public class User extends ParseObject {
     public void setBio(String bio){
         put(KEY_BIO, bio);
     }
-
 }

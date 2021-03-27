@@ -16,36 +16,37 @@ import com.parse.ParseFile;
 
 import java.util.List;
 
-public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
+public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHolder> {
 
     private Context context;
-    private List<User> users;
+    private List<Profile> profiles;
 
-    public UserAdapter(Context context, List<User> users){
+
+
+    public ProfileAdapter(Context context, List<Profile> profiles){
         this.context = context;
-        this.users = users;
+        this.profiles = profiles;
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.itemprofiles, parent, false);
-        return null;
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        User user = users.get(position);
-        holder.bind(user);
+        Profile profile = profiles.get(position);
+        holder.bind(profile);
 
     }
-
-
 
     @Override
     public int getItemCount() {
-        return users.size();
+        return profiles.size();
     }
+
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
@@ -63,18 +64,21 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             btnchat = itemView.findViewById(R.id.btnChat);
         }
 
-        public void bind(User user) {
-            //Bind data into view elements
-            //try getUser().getUsername();
-            tvusername.setText(user.getUsername());
-            tvbio.setText(user.getBio());
-            tvplaces.setText(user.getPlaces().toString());
+        public void bind(Profile profile) {
+            //Bind data to elements
 
-            ParseFile image = user.getImage();
+            tvusername.setText(profile.getUser().getUsername());
+            tvbio.setText("Bio: " + profile.getBio());
+            tvplaces.setText(profile.getPlaces().toString());
+
+            ParseFile image = profile.getImage();
 
             if(image != null) {
-                Glide.with(context).load(user.getImage().getUrl()).into(ivprofilepic);
+                Glide.with(context).load(profile.getImage().getUrl()).into(ivprofilepic);
             }
+
         }
     }
+
+
 }
