@@ -43,9 +43,6 @@ public class LoginActivity extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //set main activity on the click of login button. Need to add verification and sign up functions
-                //goMainActivity();
-                //what will actually happen on the click:
                 //get the username and password as a string
                 //TODO when back4app has been linked, uncomment these for login
                 String username = etusername.getText().toString();

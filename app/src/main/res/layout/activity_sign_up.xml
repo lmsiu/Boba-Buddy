@@ -35,10 +35,10 @@
         android:id="@+id/btnNewSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ivNewProfilePic"
+        android:layout_below="@+id/btnAddPic"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="158dp"
+        android:layout_marginEnd="160dp"
         android:text="Sign Up" />
 
     <ImageView
@@ -52,4 +52,26 @@
         android:layout_marginEnd="104dp"
         android:layout_marginBottom="5dp"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/btnAddPic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etNewBio"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="108dp"
+        android:text="Add a Profile Picture" />
+
+    <EditText
+        android:id="@+id/etNewBio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivNewProfilePic"
+        android:layout_margin="5dp"
+        android:layout_marginTop="82dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        tools:text="Hi my name is Laura and I want to cry" />
 </RelativeLayout>

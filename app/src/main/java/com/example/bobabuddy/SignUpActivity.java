@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -18,11 +20,9 @@ public class SignUpActivity extends AppCompatActivity {
     //for debugging purposes
     public static final String TAG = "SignUpActivity";
 
-    private Button signupbtn;
-    private EditText etusername, etpassword;
-
-
-
+    private Button signupbtn, btnAddProfilePic;
+    private EditText etusername, etpassword, etbio;
+    private ImageView ivprofilepic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,10 @@ public class SignUpActivity extends AppCompatActivity {
         signupbtn = findViewById(R.id.btnNewSignup);
         etpassword = findViewById(R.id.etNewPassword);
         etusername = findViewById(R.id.etNewUsername);
+        ivprofilepic = findViewById(R.id.ivNewProfilePic);
+        btnAddProfilePic = findViewById(R.id.btnAddPic);
+        etbio = findViewById(R.id.etNewBio);
+
 
         signupbtn.setOnClickListener(new View.OnClickListener() {
             @Override

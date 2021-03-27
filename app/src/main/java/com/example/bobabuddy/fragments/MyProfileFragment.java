@@ -46,9 +46,6 @@ public class MyProfileFragment extends Fragment {
                 ParseUser.logOut();
                 goLoginActivity();
 
-
-
-
             }
         });
 
