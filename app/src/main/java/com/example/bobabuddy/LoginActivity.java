@@ -15,6 +15,7 @@ import com.parse.ParseUser;
 
 // Nhi was here!
 //and Alysia!
+//and Laura
 public class LoginActivity extends AppCompatActivity {
 
     //Debugging tag for log statements. Go to debug on the logcat and type in "LoginActivity" to see logs we made
