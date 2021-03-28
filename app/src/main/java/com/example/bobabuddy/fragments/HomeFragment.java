@@ -59,7 +59,7 @@ public class HomeFragment extends Fragment {
         rvHome = view.findViewById(R.id.rvHome);
         allProfiles = new ArrayList<>();
         adapter = new ProfileAdapter(getContext(), allProfiles);
-        btnChat = view.findViewById(R.id.btnChat);
+        btnChat = view.findViewById(R.id.btnchat2);
 
         rvHome.setAdapter(adapter);
         rvHome.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -68,6 +68,14 @@ public class HomeFragment extends Fragment {
         //Populate the recycler view
         queryProfiles();
         Log.i(TAG, "Queried?");
+
+        btnChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), ChatActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
 
