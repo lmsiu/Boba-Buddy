@@ -47,7 +47,7 @@
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_below="@+id/etAddPlace"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
@@ -61,7 +61,7 @@
         android:layout_below="@+id/btnAdd"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
-        android:layout_marginEnd="14dp"
+        android:layout_marginEnd="12dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
