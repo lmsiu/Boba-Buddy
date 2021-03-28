@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -64,24 +65,18 @@ public class SignUpProfileActivity extends AppCompatActivity {
                     Toast.makeText(SignUpProfileActivity.this, "Bio can't be empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (photoFile == null || ivProfilePicture.getDrawable() == null) {
-                    Toast.makeText(SignUpProfileActivity.this, "There is no image", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 saveProfile(bio, currentUser, photoFile, placesString);
-
                 goMainActivity();
-
-
             }
         });
 
         btnaddProfilePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                launchCamera();
+
+                Intent i = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                //startActivityForResult(i, RESULT_LOAD_IMAGE);
             }
         });
 

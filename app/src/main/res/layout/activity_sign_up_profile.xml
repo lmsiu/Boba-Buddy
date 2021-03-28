@@ -27,8 +27,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="136dp"
-        android:layout_marginBottom="45dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="121dp"
+        android:layout_marginBottom="19dp"
         android:text="Finish Sign Up!" />
 
     <EditText
@@ -59,20 +60,24 @@
         android:id="@+id/ivAddProfilePic"
         android:layout_width="384dp"
         android:layout_height="286dp"
-        android:layout_below="@+id/btnAdd"
+        android:layout_above="@+id/btnAddProfilePic"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="12dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="162dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="55dp"
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
         android:id="@+id/btnAddProfilePic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/ivAddProfilePic"
+        android:layout_above="@+id/btnivload"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="106dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="95dp"
+        android:layout_marginBottom="32dp"
         android:text="Add a Profile Picture!" />
 
     <TextView
@@ -83,5 +88,16 @@
         android:layout_margin="5dp"
         android:layout_marginTop="5dp"
         android:text="Please list out the drink place names seperated by commas! Example: TeaBrick, TanCha, 7Leaves" />
+
+    <Button
+        android:id="@+id/btnivload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btnFinishSignUp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="133dp"
+        android:layout_marginBottom="33dp"
+        android:text="Load Image" />
 
 </RelativeLayout>
