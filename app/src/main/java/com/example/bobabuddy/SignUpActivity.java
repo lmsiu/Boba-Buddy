@@ -32,9 +32,6 @@ public class SignUpActivity extends AppCompatActivity {
         signupbtn = findViewById(R.id.btnNewSignup);
         etpassword = findViewById(R.id.etNewPassword);
         etusername = findViewById(R.id.etNewUsername);
-        ivprofilepic = findViewById(R.id.ivNewProfilePic);
-        btnAddProfilePic = findViewById(R.id.btnAddPic);
-        etbio = findViewById(R.id.etNewBio);
 
 
         signupbtn.setOnClickListener(new View.OnClickListener() {
@@ -52,7 +49,8 @@ public class SignUpActivity extends AppCompatActivity {
                     public void done(ParseException e) {
                       if(e == null){
                           //if error is null, we have a succsessful signup, go to the main activity
-                          goMainActivity();
+
+                          goSignUpProfile();
                       } else{
                           Log.e(TAG, "Issue with login");
                       }
@@ -65,8 +63,8 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     //Move to main activity screen
-    private void goMainActivity() {
-        Intent i = new Intent(this, MainActivity.class);
+    private void goSignUpProfile() {
+        Intent i = new Intent(this, SignUpProfileActivity.class);
         startActivity(i);
         finish();
     }

@@ -67,6 +67,7 @@ public class HomeFragment extends Fragment {
 
 private void queryProfiles() {
     ParseQuery<Profile> query = ParseQuery.getQuery(Profile.class);
+    query.addDescendingOrder(Profile.KEY_CREATEDAT);
     query.include(Profile.KEY_USER);
     query.findInBackground(new FindCallback<Profile>() {
         @Override
@@ -77,7 +78,7 @@ private void queryProfiles() {
             }
 
             for (Profile profile : profiles) {
-                Log.i(TAG, "Bio " + profile.getBio() + "User: " + profile.getUser().getUsername() + " Places: " + profile.getPlaces().toString());
+                Log.i(TAG, "Bio " + profile.getBio() + "User: " + profile.getUser().getUsername() );
             }
 
             allProfiles.addAll(profiles);

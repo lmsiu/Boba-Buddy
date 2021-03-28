@@ -69,7 +69,7 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
 
             tvusername.setText(profile.getUser().getUsername());
             tvbio.setText("Bio: " + profile.getBio());
-            tvplaces.setText(profile.getPlaces().toString());
+            //tvplaces.setText("Fav Places: " + profile.getPlaces().toString());
 
             ParseFile image = profile.getImage();
 
@@ -78,6 +78,8 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
             }
 
         }
+
+        
     }
 
 

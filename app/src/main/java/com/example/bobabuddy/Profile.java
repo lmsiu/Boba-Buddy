@@ -16,6 +16,7 @@ public class Profile extends ParseObject {
     public static final String KEY_PROFILEPIC = "ProfilePic";
     public static final String KEY_PLACES = "Places";
     public static final String KEY_BIO = "Bio";
+    public static final String KEY_CREATEDAT = "createdAt";
 
     public ParseUser getUser(){
         return getParseUser(KEY_USER);
