@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="5dp"
     android:backgroundTint="#FFFFFF"
     android:foregroundTint="#FFFFFF"
     android:padding="5dp">
@@ -16,6 +17,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
+        android:fontFamily="serif"
         android:textSize="24sp"
         tools:text="Username" />
 
@@ -49,10 +51,12 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageView"
         android:layout_alignParentEnd="true"
-        android:layout_margin="5dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:ems="10"
+        android:fontFamily="serif"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         tools:text="This is my bio. I work at JJ Boba and I want to cry" />
@@ -67,6 +71,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
         android:ems="10"
+        android:fontFamily="serif"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:textSize="24sp"
