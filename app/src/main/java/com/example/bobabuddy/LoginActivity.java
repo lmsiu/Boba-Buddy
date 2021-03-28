@@ -45,7 +45,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //get the username and password as a string
-                //TODO when back4app has been linked, uncomment these for login
                 String username = etusername.getText().toString();
                 String password = etpassword.getText().toString();
                 loginUser(username, password);

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFE9D5"
     tools:context=".SignUpProfileActivity">
 
     <EditText
@@ -81,6 +82,6 @@
         android:layout_below="@+id/etBio"
         android:layout_margin="5dp"
         android:layout_marginTop="5dp"
-        android:text="Please list out the place names seperated by commas! Example: TeaBrick, TanCha, 7Leaves" />
+        android:text="Please list out the drink place names seperated by commas! Example: TeaBrick, TanCha, 7Leaves" />
 
 </RelativeLayout>

@@ -45,17 +45,10 @@ public class MyProfileFragment extends Fragment {
 
         logoutbtn = view.findViewById(R.id.btnLogout);
         tvHello = view.findViewById(R.id.tvHelloUser);
-        ivProfilePic = view.findViewById(R.id.ivMyProfilePic);
         this.context = context;
 
         tvHello.setText("Hello, " + ParseUser.getCurrentUser().getUsername());
 
-        //Need to figure out how to access user data from users and not just use get current user
-//        ParseFile image = user.getImage();
-//
-//        if(image != null) {
-//            Glide.with(context).load(user.getImage().getUrl()).into(ivProfilePic);
-//        }
 
 
 
