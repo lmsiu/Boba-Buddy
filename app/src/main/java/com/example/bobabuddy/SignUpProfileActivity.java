@@ -25,7 +25,10 @@ import com.parse.ParseFile;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
+import org.json.JSONArray;
+
 import java.io.File;
+import java.lang.reflect.Array;
 
 public class SignUpProfileActivity extends AppCompatActivity {
 
@@ -36,6 +39,7 @@ public class SignUpProfileActivity extends AppCompatActivity {
     private ImageView ivProfilePicture;
     private File photoFile;
     private String photoFileName = "photo.jpg";
+    private JSONArray places;
 
 
     @Override
@@ -67,6 +71,8 @@ public class SignUpProfileActivity extends AppCompatActivity {
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 saveProfile(bio, currentUser, photoFile);
 
+                goMainActivity();
+
 
             }
         });
@@ -75,6 +81,14 @@ public class SignUpProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 launchCamera();
+            }
+        });
+
+        btnAddPlace.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String place = etPlaces.getText().toString();
+
             }
         });
     }
@@ -135,6 +149,9 @@ public class SignUpProfileActivity extends AppCompatActivity {
         Profile profile = new Profile();
         profile.setBio(bio);
         profile.setUser(currentUser);
+
+        places = profile.getPlaces();
+
         profile.setImage(new ParseFile(photoFile));
         profile.saveInBackground(new SaveCallback() {
             @Override
