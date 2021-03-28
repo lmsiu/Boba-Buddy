@@ -4,11 +4,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.ImageFormat;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -28,7 +26,7 @@ import com.parse.SaveCallback;
 import org.json.JSONArray;
 
 import java.io.File;
-import java.lang.reflect.Array;
+import java.util.Arrays;
 
 public class SignUpProfileActivity extends AppCompatActivity {
 
@@ -59,6 +57,9 @@ public class SignUpProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String bio = etBio.getText().toString();
+                String placesString = etPlaces.getText().toString();
+                String[] places = placesString.split(",");
+
                 if (bio.isEmpty()) {
                     Toast.makeText(SignUpProfileActivity.this, "Bio can't be empty", Toast.LENGTH_SHORT).show();
                     return;
@@ -69,7 +70,7 @@ public class SignUpProfileActivity extends AppCompatActivity {
                 }
 
                 ParseUser currentUser = ParseUser.getCurrentUser();
-                saveProfile(bio, currentUser, photoFile);
+                saveProfile(bio, currentUser, photoFile, placesString);
 
                 goMainActivity();
 
@@ -145,13 +146,11 @@ public class SignUpProfileActivity extends AppCompatActivity {
         return new File(mediaStorageDir.getPath() + File.separator + photoFileName);
     }
 
-    private void saveProfile(String bio, ParseUser currentUser, File photoFile) {
+    private void saveProfile(String bio, ParseUser currentUser, File photoFile, String places) {
         Profile profile = new Profile();
         profile.setBio(bio);
         profile.setUser(currentUser);
-
-        places = profile.getPlaces();
-
+        profile.addAllUnique("Places", Arrays.asList(places.split(",")));
         profile.setImage(new ParseFile(photoFile));
         profile.saveInBackground(new SaveCallback() {
             @Override
