@@ -1,6 +1,7 @@
 package com.example.bobabuddy;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.parse.ParseFile;
 
+import java.lang.reflect.Array;
 import java.util.List;
 
 public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHolder> {
@@ -69,7 +71,10 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
 
             tvusername.setText(profile.getUser().getUsername());
             tvbio.setText("Bio: " + profile.getBio());
-            //tvplaces.setText("Fav Places: " + profile.getPlaces().toString());
+            if(profile.getPlaces() != null){
+                tvplaces.setText("Fav Places: " + profile.getPlaces());
+            }
+
 
             ParseFile image = profile.getImage();
 
@@ -79,8 +84,10 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
 
         }
 
-        
+
     }
+
+
 
 
 }
