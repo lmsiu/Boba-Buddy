@@ -9,5 +9,10 @@
     <string name="logout">Log Out</string>
     <string name="sign_up">New? Sign Up!</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="message_hint">Say hi to your friend!</string>
+    <string name="send">Send</string>
+    
+    <string name="profile_me">My Profile Pic</string>
 
+    <string name="profile_other">Other profile pic</string>
 </resources>

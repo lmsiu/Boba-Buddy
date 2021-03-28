@@ -6,24 +6,19 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import com.example.bobabuddy.fragments.HomeFragment;
 import com.example.bobabuddy.fragments.MyProfileFragment;
-import com.example.bobabuddy.fragments.YelpFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.parse.FindCallback;
-import com.parse.ParseException;
-import com.parse.ParseQuery;
-
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final String TAG = "MainActivity";
     final FragmentManager fragmentManager = getSupportFragmentManager();
 
+    private Button btnChat;
     private BottomNavigationView bottomNavigationView;
 
 
@@ -32,8 +27,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        btnChat = findViewById(R.id.btnChat);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-
 
         //switches between screens (fragments) when a button on the bottom navigation is clicked
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -44,24 +39,15 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.myprofileitem:
                         fragment = new MyProfileFragment();
                         break;
-                    case R.id.miadd:
-                        fragment = new YelpFragment();
-                        break;
                     case R.id.homeitem:
                     default:
                         fragment = new HomeFragment();
                         break;
                 }
 
-                fragmentManager.beginTransaction().replace(R.id.flCoontainer, fragment).commit();
+                fragmentManager.beginTransaction().replace(R.id.flContainer, fragment).commit();
                 return true;
             }
         });
-
-
     }
-
-
-
-
 }

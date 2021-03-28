@@ -13,26 +13,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BobaBuddy"
         android:usesCleartextTraffic="true">
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="com.codepath.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/fileprovider" />
-        </provider>
 
-        <activity android:name=".SignUpProfileActivity"></activity>
+
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/fileprovider" />
+
+        <activity android:name=".SignUpProfileActivity" />
+        <activity android:name=".ChatActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"/>
     </application>
 
 </manifest>

@@ -7,10 +7,8 @@
     android:background="#FFE9D5"
     tools:context=".MainActivity">
 
-    \
-
     <FrameLayout
-        android:id="@+id/flCoontainer"
+        android:id="@+id/flContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottom_navigation" />

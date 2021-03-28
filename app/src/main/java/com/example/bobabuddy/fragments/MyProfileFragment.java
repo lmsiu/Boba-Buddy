@@ -49,9 +49,6 @@ public class MyProfileFragment extends Fragment {
 
         tvHello.setText("Hello, " + ParseUser.getCurrentUser().getUsername());
 
-
-
-
         logoutbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,9 +64,6 @@ public class MyProfileFragment extends Fragment {
     public void goLoginActivity(){
         Intent i = new Intent(getActivity(), LoginActivity.class);
         startActivity(i);
-
-
-
     }
 
 

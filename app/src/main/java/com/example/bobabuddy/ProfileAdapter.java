@@ -1,6 +1,7 @@
 package com.example.bobabuddy;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,11 +38,11 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
         return new ViewHolder(view);
     }
 
+    //takes profile and assign positions
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Profile profile = profiles.get(position);
         holder.bind(profile);
-
     }
 
     @Override
@@ -75,19 +76,11 @@ public class ProfileAdapter extends RecyclerView.Adapter<ProfileAdapter.ViewHold
                 tvplaces.setText("Fav Places: " + profile.getPlaces());
             }
 
-
             ParseFile image = profile.getImage();
 
             if(image != null) {
                 Glide.with(context).load(profile.getImage().getUrl()).into(ivprofilepic);
             }
-
         }
-
-
     }
-
-
-
-
 }

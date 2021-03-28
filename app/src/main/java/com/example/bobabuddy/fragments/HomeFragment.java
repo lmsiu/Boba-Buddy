@@ -1,5 +1,6 @@
 package com.example.bobabuddy.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,13 +13,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
+import com.example.bobabuddy.ChatActivity;
 import com.example.bobabuddy.Profile;
 import com.example.bobabuddy.ProfileAdapter;
 import com.example.bobabuddy.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +35,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView rvHome;
     private ProfileAdapter adapter;
     private List<Profile> allProfiles;
+    private Button btnChat;
 
 
     public HomeFragment() {
@@ -54,6 +59,7 @@ public class HomeFragment extends Fragment {
         rvHome = view.findViewById(R.id.rvHome);
         allProfiles = new ArrayList<>();
         adapter = new ProfileAdapter(getContext(), allProfiles);
+        btnChat = view.findViewById(R.id.btnChat);
 
         rvHome.setAdapter(adapter);
         rvHome.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -83,9 +89,10 @@ private void queryProfiles() {
 
             allProfiles.addAll(profiles);
             adapter.notifyDataSetChanged();
-
         }
 
+
     });
+
 }
 }

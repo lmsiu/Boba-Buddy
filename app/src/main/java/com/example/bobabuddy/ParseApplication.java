@@ -5,6 +5,9 @@ import android.app.Application;
 import com.parse.Parse;
 import com.parse.ParseObject;
 
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+
 public class ParseApplication extends Application {
 //links back4app database with the app
 
@@ -14,7 +17,10 @@ public class ParseApplication extends Application {
 
         // Register your parse models
         ParseObject.registerSubclass(Profile.class);
+        ParseObject.registerSubclass(Message.class);
 
+        OkHttpClient.Builder builder = new OkHttpClient.Builder();
+        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
 
         // set applicationId, and server server based on the values in the back4app settings.
         // any network interceptors must be added with the Configuration Builder given this syntax
